@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+
+    <title>Title</title>
+</head>
+<body>
+<!--서버에서 받아온 거 일단 찍자-->
+<!--html 요소에서 잘못된 속석 이름을 사용하면 그냥 무시한다-->
+<div th:text="${sungjuck}"></div>
+<ul>
+
+    <li th:text="${sungjuck.name}"></li>
+    <li th:text="${sungjuck.score}"></li>
+</ul>
+<!-- th:if="${sungjuck.score>=80}">-->
+<!--    <p>합격</p>-->
+<!--</div>-->
+<!--<div th:if="${sungjuck.score<80}">-->
+<!--   <p>불합격</p>-->
+<div th:text="${sungjuck.score>=70? '합격입니다':'불합격입니다'}"></div>
+<hr>
+<button th:if="${sungjuck.score>=70}">합격자등록</button>
+
+</body>
+</html>
