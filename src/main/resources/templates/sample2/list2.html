@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <!--
+        CDN(Content Delivery Network) 방식으로 부트스트랩 추가
+        - css, js 라이브러리를, 사용자가 내가 아닌 구글 등의 외부 서버에서 다운로드하게 지정
+      -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Title</title>
+</head>
+<body>
+<div th:text="${products}"></div>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>번호</th>
+            <th>브랜드</th>
+            <th>이름</th>
+            <th>가격</th>
+            <th>재고</th>
+        </tr>
+    </thead>
+    <tbody>
+    <tr th:each="product:${products}">
+        <td th:text="${product.pno}"></td>
+        <td th:text="${product.vender}"></td>
+        <td th:text="${product.name}"></td>
+        <td th:text="${product.price}"></td>
+        <td th:text="${product.stock}"></td>
+        <td>
+            <button class="btn btn-primary" th:text="${product.stock>0?'주문':'입고'}"></button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
